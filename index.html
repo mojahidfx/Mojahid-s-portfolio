@@ -74,11 +74,212 @@ footer{text-align:center;padding:30px;border-top:1px solid #e5e7eb;color:#6b7280
 </div>
 </section>
 
-<section id="about" class="about">
-<h2 class="title">About Me</h2>
-<div class="card">I focus on graphic design, photo editing, branding concepts, and visual storytelling. My goal is to create work that feels modern, clean, and memorable.</div>
+<section class="about-section" id="about">
+
+    <div class="about-image">
+        <img src="your-photo.jpg" alt="Mojahidol Islam">
+    </div>
+
+    <div class="about-content">
+
+        <span class="about-badge">About Me</span>
+
+        <h1>Hello!</h1>
+
+        <h2>I'm Mojahidol Islam</h2>
+
+        <p class="role">
+            Graphic Designer
+        </p>
+
+        <p class="about-text">
+            I'm a passionate graphic designer who enjoys creating clean,
+            modern, and visually engaging designs. I love exploring new
+            creative ideas, improving my skills, and transforming concepts
+            into impactful visual experiences.
+        </p>
+
+        <p class="about-text">
+            Alongside graphic design, I enjoy learning about technology,
+            programming, and digital creativity. I constantly explore new
+            tools and techniques to expand my knowledge and improve my
+            creative workflow.
+        </p>
+
+        <div class="about-grid">
+
+            <div class="info-card">
+                <h3>Age</h3>
+                <p id="age"></p>
+            </div>
+
+            <div class="info-card">
+                <h3>Known As</h3>
+                <p>Mojahid</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Focus</h3>
+                <p>Graphic Design</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Learning</h3>
+                <p>Technology & Programming</p>
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
+<style>
+
+.about-section{
+    max-width:1200px;
+    margin:auto;
+    padding:120px 40px;
+
+    display:grid;
+    grid-template-columns:400px 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about-image{
+    position:relative;
+}
+
+.about-image img{
+    width:100%;
+    height:550px;
+    object-fit:cover;
+
+    border-radius:32px;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.08);
+}
+
+.about-badge{
+    display:inline-block;
+
+    padding:10px 18px;
+
+    background:#eef2ff;
+    color:#2563eb;
+
+    border-radius:999px;
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+.about-content h1{
+    font-size:4rem;
+    line-height:1;
+    margin-bottom:10px;
+}
+
+.about-content h2{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.role{
+    color:#2563eb;
+    font-weight:600;
+    font-size:1.1rem;
+    margin-bottom:25px;
+}
+
+.about-text{
+    color:#6b7280;
+    line-height:1.9;
+    margin-bottom:20px;
+    font-size:1rem;
+}
+
+.about-grid{
+    margin-top:40px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.info-card{
+    background:white;
+
+    border:1px solid #e5e7eb;
+
+    padding:24px;
+
+    border-radius:24px;
+
+    transition:.3s ease;
+}
+
+.info-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.06);
+}
+
+.info-card h3{
+    font-size:1rem;
+    margin-bottom:8px;
+}
+
+.info-card p{
+    color:#6b7280;
+}
+
+@media(max-width:900px){
+
+.about-section{
+    grid-template-columns:1fr;
+    gap:50px;
+}
+
+.about-image img{
+    height:450px;
+}
+
+.about-content h1{
+    font-size:3rem;
+}
+
+.about-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+<script>
+
+const birthDate = new Date("2010-08-12");
+const today = new Date();
+
+let age = today.getFullYear() - birthDate.getFullYear();
+
+if(
+today.getMonth() < birthDate.getMonth() ||
+(
+today.getMonth() === birthDate.getMonth() &&
+today.getDate() < birthDate.getDate()
+)
+){
+age--;
+}
+
+document.getElementById("age").textContent = age + " Years Old";
+
+</script>
 <section id="skills">
 <h2 class="title">Skills</h2>
 <div class="grid">
