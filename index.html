@@ -3,57 +3,247 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mozahide Portfolio</title>
+<title>Mojahid | Portfolio</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
-html{scroll-behavior:smooth}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
-background:linear-gradient(180deg,#fff,#f8fafc);
+background:#ffffff;
+color:#111827;
+background:
+radial-gradient(circle at top left, rgba(37,99,235,.08), transparent 30%),
+#ffffff;
+}
+
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:90%;
+max-width:1100px;
+padding:14px 28px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.8);
+backdrop-filter:blur(16px);
+border:1px solid rgba(0,0,0,.05);
+border-radius:999px;
+z-index:1000;
+}
+
+.logo{
+font-size:22px;
+font-weight:800;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:#111827;
+font-weight:500;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:120px 10%;
+text-align:center;
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.badge{
+display:inline-block;
+padding:10px 18px;
+border-radius:999px;
+background:#eef2ff;
+color:#2563eb;
+font-weight:600;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:clamp(3rem,8vw,6rem);
+line-height:.95;
+margin-bottom:20px;
+}
+
+.accent{
+color:#2563eb;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+color:#6b7280;
+line-height:1.8;
+font-size:18px;
+}
+
+.buttons{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 28px;
+border-radius:14px;
+text-decoration:none;
+transition:.3s;
+}
+
+.primary{
+background:#2563eb;
+color:white;
+}
+
+.secondary{
+background:#f3f4f6;
 color:#111827;
 }
-nav{
-position:fixed;top:20px;left:50%;transform:translateX(-50%);
-width:min(1100px,90%);padding:14px 24px;
-display:flex;justify-content:space-between;align-items:center;
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(18px);
-border:1px solid rgba(0,0,0,.06);
-border-radius:999px;z-index:1000;
+
+.btn:hover{
+transform:translateY(-4px);
 }
-nav ul{display:flex;gap:24px;list-style:none}
-nav a{text-decoration:none;color:#111827}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 10%}
-.hero-content{text-align:center;max-width:950px}
-.badge{display:inline-block;padding:10px 18px;border-radius:999px;background:#eef2ff;color:#2563eb}
-h1{font-size:clamp(3.5rem,9vw,7rem);line-height:.95;margin:20px 0}
-.accent{color:#2563eb}
-.hero p{max-width:720px;margin:0 auto;color:#6b7280;line-height:1.8}
-.btns{margin-top:30px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{padding:14px 24px;border-radius:14px;text-decoration:none}
-.primary{background:#2563eb;color:white}
-.secondary{background:#f3f4f6;color:#111827}
-section{padding:100px 10%}
-.title{text-align:center;font-size:42px;margin-bottom:50px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+
+section{
+padding:100px 10%;
+}
+
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:60px;
+}
+
+.about{
+display:grid;
+grid-template-columns:380px 1fr;
+gap:60px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+height:520px;
+object-fit:cover;
+border-radius:28px;
+background:#eef2ff;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+.about-text{
+color:#6b7280;
+line-height:1.9;
+margin:15px 0;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:25px;
+}
+
 .card{
-background:white;border:1px solid #e5e7eb;border-radius:24px;padding:24px;
-transition:.35s;
+background:white;
+border:1px solid #e5e7eb;
+padding:24px;
+border-radius:22px;
+transition:.3s;
 }
-.card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+.skills-grid,
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
 .project-image{
-height:220px;border-radius:18px;
+height:220px;
+border-radius:18px;
 background:linear-gradient(135deg,#dbeafe,#eef2ff);
 margin-bottom:18px;
 }
-.about{background:#f8fafc}
-footer{text-align:center;padding:30px;border-top:1px solid #e5e7eb;color:#6b7280}
-@media(max-width:768px){nav ul{display:none}}
+
+.projects{
+background:#f8fafc;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact p{
+margin-top:15px;
+color:#6b7280;
+}
+
+.footer{
+text-align:center;
+padding:30px;
+border-top:1px solid #e5e7eb;
+color:#6b7280;
+}
+
+@media(max-width:900px){
+
+.about{
+grid-template-columns:1fr;
+}
+
+.info-grid{
+grid-template-columns:1fr;
+}
+
+nav ul{
+display:none;
+}
+
+.hero{
+padding-top:140px;
+}
+}
 </style>
 </head>
+
 <body>
+
 <nav>
-<div><strong>M.</strong></div>
+<div class="logo">M.</div>
+
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
@@ -63,205 +253,166 @@ footer{text-align:center;padding:30px;border-top:1px solid #e5e7eb;color:#6b7280
 </nav>
 
 <section class="hero">
+
 <div class="hero-content">
+
 <span class="badge">Graphic Designer</span>
-<h1>Designing visuals that feel <span class="accent">simple</span>, modern, and memorable.</h1>
-<p>I'm Mozahide, a graphic designer passionate about clean visual experiences. Alongside design, I'm learning programming and technology to expand my creative skills and build for the future.</p>
-<div class="btns">
-<a href="#projects" class="btn primary">View My Work</a>
-<a href="#contact" class="btn secondary">Contact Me</a>
+
+<h1>
+Designing visuals that feel
+<span class="accent">simple</span>,
+modern, and memorable.
+</h1>
+
+<p>
+I'm Mojahid, a graphic designer passionate about creating clean visual
+experiences. Alongside design, I'm learning programming and technology
+to expand my creative skills and build for the future.
+</p>
+
+<div class="buttons">
+<a href="#projects" class="btn primary">View Work</a>
+<a href="#contact" class="btn secondary">Contact</a>
 </div>
+
 </div>
-</section>
-
-<section class="about-section" id="about">
-
-    <div class="about-image">
-        <img src="your-photo.jpg" alt="Mojahidol Islam">
-    </div>
-
-    <div class="about-content">
-
-        <span class="about-badge">About Me</span>
-
-        <h1>Hello!</h1>
-
-        <h2>I'm Mojahidol Islam</h2>
-
-        <p class="role">
-            Graphic Designer
-        </p>
-
-        <p class="about-text">
-            I'm a passionate graphic designer who enjoys creating clean,
-            modern, and visually engaging designs. I love exploring new
-            creative ideas, improving my skills, and transforming concepts
-            into impactful visual experiences.
-        </p>
-
-        <p class="about-text">
-            Alongside graphic design, I enjoy learning about technology,
-            programming, and digital creativity. I constantly explore new
-            tools and techniques to expand my knowledge and improve my
-            creative workflow.
-        </p>
-
-        <div class="about-grid">
-
-            <div class="info-card">
-                <h3>Age</h3>
-                <p id="age"></p>
-            </div>
-
-            <div class="info-card">
-                <h3>Known As</h3>
-                <p>Mojahid</p>
-            </div>
-
-            <div class="info-card">
-                <h3>Focus</h3>
-                <p>Graphic Design</p>
-            </div>
-
-            <div class="info-card">
-                <h3>Learning</h3>
-                <p>Technology & Programming</p>
-            </div>
-
-        </div>
-
-    </div>
 
 </section>
 
-<style>
+<section id="about">
 
-.about-section{
-    max-width:1200px;
-    margin:auto;
-    padding:120px 40px;
+<h2 class="section-title">About Me</h2>
 
-    display:grid;
-    grid-template-columns:400px 1fr;
-    gap:80px;
-    align-items:center;
-}
+<div class="about">
 
-.about-image{
-    position:relative;
-}
+<img src="your-photo.jpg" alt="Mojahid">
 
-.about-image img{
-    width:100%;
-    height:550px;
-    object-fit:cover;
+<div>
 
-    border-radius:32px;
+<h2>Hello! I'm Mojahidol Islam</h2>
 
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.08);
-}
+<p class="about-text">
+I'm a passionate graphic designer who enjoys creating modern,
+clean, and visually engaging designs. I love exploring creative ideas
+and turning concepts into impactful visual experiences.
+</p>
 
-.about-badge{
-    display:inline-block;
+<p class="about-text">
+Alongside graphic design, I'm continuously learning technology,
+programming, and digital creativity to expand my knowledge and
+prepare for future opportunities.
+</p>
 
-    padding:10px 18px;
+<div class="info-grid">
 
-    background:#eef2ff;
-    color:#2563eb;
+<div class="card">
+<h3>Age</h3>
+<p id="age"></p>
+</div>
 
-    border-radius:999px;
-    font-weight:600;
+<div class="card">
+<h3>Known As</h3>
+<p>Mojahid</p>
+</div>
 
-    margin-bottom:20px;
-}
+<div class="card">
+<h3>Focus</h3>
+<p>Graphic Design</p>
+</div>
 
-.about-content h1{
-    font-size:4rem;
-    line-height:1;
-    margin-bottom:10px;
-}
+<div class="card">
+<h3>Learning</h3>
+<p>Technology & Programming</p>
+</div>
 
-.about-content h2{
-    font-size:2rem;
-    margin-bottom:10px;
-}
+</div>
 
-.role{
-    color:#2563eb;
-    font-weight:600;
-    font-size:1.1rem;
-    margin-bottom:25px;
-}
+</div>
 
-.about-text{
-    color:#6b7280;
-    line-height:1.9;
-    margin-bottom:20px;
-    font-size:1rem;
-}
+</div>
 
-.about-grid{
-    margin-top:40px;
+</section>
 
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
+<section id="skills">
 
-.info-card{
-    background:white;
+<h2 class="section-title">Skills</h2>
 
-    border:1px solid #e5e7eb;
+<div class="skills-grid">
 
-    padding:24px;
+<div class="card">
+<h3>Graphic Design</h3>
+<br>
+Photo Editing<br>
+Poster Design<br>
+Thumbnail Design<br>
+Social Media Design
+</div>
 
-    border-radius:24px;
+<div class="card">
+<h3>Tools</h3>
+<br>
+Photoshop<br>
+Canva<br>
+Figma<br>
+AI Tools
+</div>
 
-    transition:.3s ease;
-}
+<div class="card">
+<h3>Learning</h3>
+<br>
+HTML<br>
+CSS<br>
+JavaScript<br>
+UI/UX Design
+</div>
 
-.info-card:hover{
-    transform:translateY(-6px);
+</div>
 
-    box-shadow:
-    0 20px 40px rgba(0,0,0,.06);
-}
+</section>
 
-.info-card h3{
-    font-size:1rem;
-    margin-bottom:8px;
-}
+<section class="projects" id="projects">
 
-.info-card p{
-    color:#6b7280;
-}
+<h2 class="section-title">Featured Work</h2>
 
-@media(max-width:900px){
+<div class="project-grid">
 
-.about-section{
-    grid-template-columns:1fr;
-    gap:50px;
-}
+<div class="card">
+<div class="project-image"></div>
+<h3>Graphic Design Portfolio</h3>
+<p>Your best posters and designs.</p>
+</div>
 
-.about-image img{
-    height:450px;
-}
+<div class="card">
+<div class="project-image"></div>
+<h3>Photo Editing Collection</h3>
+<p>Your best photo manipulations and edits.</p>
+</div>
 
-.about-content h1{
-    font-size:3rem;
-}
+<div class="card">
+<div class="project-image"></div>
+<h3>Creative Projects</h3>
+<p>Special creative and experimental work.</p>
+</div>
 
-.about-grid{
-    grid-template-columns:1fr;
-}
+</div>
 
-}
+</section>
 
-</style>
+<section class="contact" id="contact">
+
+<h2 class="section-title">Let's Connect</h2>
+
+<p>Instagram: @yourusername</p>
+<p>GitHub: github.com/mojahidfx</p>
+<p>Email: your@email.com</p>
+
+</section>
+
+<div class="footer">
+© 2026 Mojahidol Islam. All rights reserved.
+</div>
 
 <script>
-
 const birthDate = new Date("2010-08-12");
 const today = new Date();
 
@@ -269,44 +420,14 @@ let age = today.getFullYear() - birthDate.getFullYear();
 
 if(
 today.getMonth() < birthDate.getMonth() ||
-(
-today.getMonth() === birthDate.getMonth() &&
-today.getDate() < birthDate.getDate()
-)
+(today.getMonth() === birthDate.getMonth() &&
+today.getDate() < birthDate.getDate())
 ){
 age--;
 }
 
 document.getElementById("age").textContent = age + " Years Old";
-
 </script>
-<section id="skills">
-<h2 class="title">Skills</h2>
-<div class="grid">
-<div class="card"><h3>Graphic Design</h3><br>Photo Editing<br>Poster Design<br>Social Media Design<br>Thumbnail Design</div>
-<div class="card"><h3>Tools</h3><br>Photoshop<br>Canva<br>AI Tools<br>Creative Workflow</div>
-<div class="card"><h3>Learning</h3><br>HTML<br>CSS<br>JavaScript<br>UI/UX Fundamentals</div>
-</div>
-</section>
 
-<section id="projects" class="about">
-<h2 class="title">Featured Work</h2>
-<div class="grid">
-<div class="card"><div class="project-image"></div><h3>Graphic Design Portfolio</h3></div>
-<div class="card"><div class="project-image"></div><h3>Photo Editing Collection</h3></div>
-<div class="card"><div class="project-image"></div><h3>Learning Journey</h3></div>
-</div>
-</section>
-
-<section id="contact">
-<h2 class="title">Let's Connect</h2>
-<div class="card">
-Email: your@email.com<br><br>
-Instagram: @yourusername<br><br>
-GitHub: github.com/mojahidfx
-</div>
-</section>
-
-<footer>© 2026 Mozahide. All rights reserved.</footer>
 </body>
-</html>
+    </html>
