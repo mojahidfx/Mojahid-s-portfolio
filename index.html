@@ -374,29 +374,188 @@ UI/UX Design
 
 <h2 class="section-title">Featured Work</h2>
 
-<div class="project-grid">
+<div class="work-section">
 
-<div class="card">
-<div class="project-image"></div>
-<h3>Graphic Design Portfolio</h3>
-<p>Your best posters and designs.</p>
+<h3>Graphic Design</h3>
+
+<div class="gallery">
+
+<img src="works/design1.jpg" alt="">
+<img src="works/design2.jpg" alt="">
+<img src="works/design3.jpg" alt="">
+<img src="works/design4.jpg" alt="">
+<img src="works/design5.jpg" alt="">
+<img src="works/design6.jpg" alt="">
+
 </div>
 
-<div class="card">
-<div class="project-image"></div>
-<h3>Photo Editing Collection</h3>
-<p>Your best photo manipulations and edits.</p>
 </div>
 
-<div class="card">
-<div class="project-image"></div>
-<h3>Creative Projects</h3>
-<p>Special creative and experimental work.</p>
+<div class="work-section">
+
+<h3>Photo Editing</h3>
+
+<div class="gallery">
+
+<img src="works/edit1.jpg" alt="">
+<img src="works/edit2.jpg" alt="">
+<img src="works/edit3.jpg" alt="">
+<img src="works/edit4.jpg" alt="">
+<img src="works/edit5.jpg" alt="">
+<img src="works/edit6.jpg" alt="">
+
 </div>
 
 </div>
 
 </section>
+
+<div id="lightbox">
+<img id="lightbox-img">
+</div>
+
+<style>
+
+.projects{
+padding:120px 10%;
+background:#f8fafc;
+}
+
+.work-section{
+margin-bottom:80px;
+}
+
+.work-section h3{
+font-size:28px;
+margin-bottom:20px;
+font-weight:700;
+}
+
+.gallery{
+display:flex;
+gap:20px;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+padding-bottom:10px;
+cursor:grab;
+scroll-behavior:smooth;
+}
+
+.gallery::-webkit-scrollbar{
+display:none;
+}
+
+.gallery img{
+width:350px;
+height:240px;
+object-fit:cover;
+border-radius:24px;
+scroll-snap-align:start;
+
+transition:
+transform .5s cubic-bezier(.22,1,.36,1),
+box-shadow .5s ease;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+#lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(10px);
+
+display:none;
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:24px;
+}
+
+@media(max-width:768px){
+
+.gallery img{
+width:280px;
+height:190px;
+}
+
+}
+
+</style>
+
+<script>
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+document.querySelectorAll(".gallery img").forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+lightbox.style.display="flex";
+lightboxImg.src=img.src;
+
+});
+
+});
+
+lightbox.addEventListener("click",()=>{
+
+lightbox.style.display="none";
+
+});
+
+document.querySelectorAll(".gallery").forEach(slider=>{
+
+let isDown=false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener("mousedown",(e)=>{
+
+isDown=true;
+startX=e.pageX-slider.offsetLeft;
+scrollLeft=slider.scrollLeft;
+
+});
+
+slider.addEventListener("mouseleave",()=>{
+
+isDown=false;
+
+});
+
+slider.addEventListener("mouseup",()=>{
+
+isDown=false;
+
+});
+
+slider.addEventListener("mousemove",(e)=>{
+
+if(!isDown)return;
+
+e.preventDefault();
+
+const x=e.pageX-slider.offsetLeft;
+const walk=(x-startX)*2;
+
+slider.scrollLeft=scrollLeft-walk;
+
+});
+
+});
+
+</script>
 
 <section class="contact" id="contact">
 
