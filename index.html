@@ -370,46 +370,265 @@ UI/UX Design
 
 </section>
 
-<section class="projects" id="projects">
+<section class="featured-work">
 
-<h2 class="section-title">Featured Work</h2>
+    <h2 class="section-title">Featured Work</h2>
 
-<div class="work-section">
+    <!-- Graphic Design -->
 
-<h3>Graphic Design</h3>
+    <div class="work-card">
 
-<div class="gallery">
+        <div class="work-trigger">
 
-<img src="works/design1.jpg" alt="">
-<img src="works/design2.jpg" alt="">
-<img src="works/design3.jpg" alt="">
-<img src="works/design4.jpg" alt="">
-<img src="works/design5.jpg" alt="">
-<img src="works/design6.jpg" alt="">
+            <div class="project-image"></div>
 
-</div>
+            <div class="card-content">
 
-</div>
+                <div>
+                    <h3>Graphic Design Portfolio</h3>
+                    <p>Your best posters and designs.</p>
+                </div>
 
-<div class="work-section">
+                <span class="arrow">⌄</span>
 
-<h3>Photo Editing</h3>
+            </div>
 
-<div class="gallery">
+        </div>
 
-<img src="works/edit1.jpg" alt="">
-<img src="works/edit2.jpg" alt="">
-<img src="works/edit3.jpg" alt="">
-<img src="works/edit4.jpg" alt="">
-<img src="works/edit5.jpg" alt="">
-<img src="works/edit6.jpg" alt="">
+        <div class="work-content">
 
-</div>
+            <div class="works-grid">
 
-</div>
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Photo Editing -->
+
+    <div class="work-card">
+
+        <div class="work-trigger">
+
+            <div class="project-image"></div>
+
+            <div class="card-content">
+
+                <div>
+                    <h3>Photo Editing Collection</h3>
+                    <p>Your best photo manipulations and edits.</p>
+                </div>
+
+                <span class="arrow">⌄</span>
+
+            </div>
+
+        </div>
+
+        <div class="work-content">
+
+            <div class="works-grid">
+
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
+<style>
+
+.featured-work{
+    padding:120px 10%;
+    background:#f8fafc;
+}
+
+.section-title{
+    text-align:center;
+    font-size:48px;
+    margin-bottom:60px;
+    color:#111827;
+}
+
+.work-card{
+
+    background:#ffffff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin-bottom:25px;
+
+    transition:.4s;
+
+}
+
+.work-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.work-trigger{
+
+    padding:20px;
+
+    cursor:pointer;
+
+}
+
+.project-image{
+
+    width:100%;
+
+    height:260px;
+
+    background:#dfe7f5;
+
+    border-radius:24px;
+
+    margin-bottom:18px;
+
+}
+
+.card-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.card-content h3{
+
+    font-size:28px;
+
+    color:#111827;
+
+    margin-bottom:5px;
+
+}
+
+.card-content p{
+
+    color:#6b7280;
+
+}
+
+.arrow{
+
+    font-size:34px;
+
+    transition:.4s;
+
+}
+
+.work-card.active .arrow{
+
+    transform:rotate(180deg);
+
+}
+
+.work-content{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .8s cubic-bezier(.22,1,.36,1);
+
+}
+
+.work-card.active .work-content{
+
+    max-height:1200px;
+
+}
+
+.works-grid{
+
+    padding:0 20px 20px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:18px;
+
+}
+
+.work-item{
+
+    height:180px;
+
+    background:#dfe7f5;
+
+    border-radius:20px;
+
+    transition:.3s;
+
+}
+
+.work-item:hover{
+
+    transform:scale(1.03);
+
+}
+
+@media(max-width:768px){
+
+    .section-title{
+        font-size:38px;
+    }
+
+    .project-image{
+        height:180px;
+    }
+
+    .card-content h3{
+        font-size:22px;
+    }
+
+}
+
+</style>
+
+<script>
+
+document.querySelectorAll('.work-trigger').forEach(card=>{
+
+    card.addEventListener('click',()=>{
+
+        card.parentElement.classList.toggle('active');
+
+    });
+
+});
+
+    </script>
 <div id="lightbox">
 <img id="lightbox-img">
 </div>
